@@ -190,7 +190,7 @@ ai_model_state *my_transition_function(ai_model_state *model_state,
 
 /*
  * Return true if we are at a Goal Model State.
- * In this case the Agent's position is Goal state "S"
+ * In this case the Agent's position is Goal state "G"
  */
 int my_is_goal_state_function(ai_model_state *model_state) {
 	my_model_state_data *data = (my_model_state_data *) (model_state->data);
