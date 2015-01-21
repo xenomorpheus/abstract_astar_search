@@ -1,0 +1,17 @@
+# Cmake
+CMakeCache.txt
+CMakeFiles
+Makefile
+cmake_install.cmake
+install_manifest.txt
+bin/
+build/
+
+# Vim
+*.swp
+
+# Astyle
+*.orig
+
+# Annoying windows stuff
+Thumbs.db

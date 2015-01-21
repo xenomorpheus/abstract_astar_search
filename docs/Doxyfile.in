@@ -1,0 +1,13 @@
+STRIP_FROM_PATH        = @PROJECT_SOURCE_DIR@ \
+                         @PROJECT_BINARY_DIR@
+INPUT                  = @PROJECT_SOURCE_DIR@/include/
+FILE_PATTERNS          = *.h 
+RECURSIVE              = NO
+USE_MDFILE_AS_MAINPAGE = @doxy_main_page@
+DOXYFILE_ENCODING      = UTF-8
+PROJECT_NAME           = "@CMAKE_PROJECT_NAME@"
+PROJECT_NUMBER         = @VERSION_MAJOR@.@VERSION_MINOR@.@VERSION_PATCH@
+PROJECT_BRIEF          = "Abstract A* Search (abstract_astar_search)"
+QUIET                  = YES
+OPTIMIZE_OUTPUT_FOR_C  = YES
+GENERATE_LATEX         = NO

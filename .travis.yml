@@ -1,0 +1,17 @@
+language: c
+compiler:
+  - gcc
+  - clang
+install:
+before_script:
+  - mkdir bin
+  - cd bin
+  - cmake --trace ..
+script:
+  - make
+  - bin/test_ai_search
+  - bin/test_ai_search_demo_grid
+  - bin/test_ai_search_demo_graph
+    # Etc...
+notifications:
+  slack: abstract_astar_search:TODO
