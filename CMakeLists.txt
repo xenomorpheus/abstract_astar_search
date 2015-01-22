@@ -79,9 +79,16 @@ message(STATUS "Set release flags to ${CMAKE_C_FLAGS_RELEASE}")
 SET(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${PROJECT_SOURCE_DIR}/cmake-modules)
 
 #
+# Add external libs that are required for abstract_astar_search to build here as sub
+# directories such that we can build and link against them as static libraries
+#
+add_subdirectory(${PROJECT_SOURCE_DIR}/deps/bstring)
+
+#
 # Header files required by abstract_astar_search 
 #
 include_directories(${PROJECT_SOURCE_DIR}/include)
+include_directories(${PROJECT_SOURCE_DIR}/deps/bstring/include)
 
 #
 # Add the abstract_astar_search src and tests to the build

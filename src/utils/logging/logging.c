@@ -4,6 +4,19 @@
  * In this module we implement very simple log to stderr logging.
  */
 
+#include <time.h>
+#include <stdio.h>
+
+// Custom
+#include <types.h>
+
+/*
+ * bstring library
+ */
+#include <bstrlib.h>
+#include <bstraux.h>
+
+
 /*
  * the log file that we wish to log too
  */
