@@ -1,11 +1,11 @@
 #
-# abstract_astar_search cmake 
+# abstract_astar_search_c cmake
 #
 cmake_minimum_required(VERSION 2.8.7)
-project(abstract_astar_search C)
+project(abstract_astar_search_c C)
 
 #
-# abstract_astar_search version
+# abstract_astar_search_c version
 #
 set(VERSION_MAJOR 0)
 set(VERSION_MINOR 1)
@@ -30,7 +30,7 @@ endif()
 
 #
 # Per compiler flags
-# 
+#
 set(GCC_COMPILER_FLAGS_DEBUG    "-Wall -g")
 set(GCC_COMPILER_FLAGS_RELEASE  "-Wall -DNO_LINENOS -DNDEBUG")
 set(CLANG_COMPILER_FLAGS_DEBUG  "-Wall -g")
@@ -39,7 +39,7 @@ set(MSVC_COMPILER_FLAGS_DEBUG   "/W3 /D_CRT_SECURE_NO_WARNINGS /wd4005 /wd4996 /
 set(MSVC_COMPILER_FLAGS_RELEASE "/DNO_LINENOS /DNDEBUG /W3 /D_CRT_SECURE_NO_WARNINGS /wd4005 /wd4996 /wd4820 /nologo")
 
 #
-# Set more "sane" output folders 
+# Set more "sane" output folders
 #
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
@@ -52,21 +52,21 @@ if ("${CMAKE_C_COMPILER_ID}" STREQUAL "Clang")
     message(STATUS "Setting clang flags.")
     set(CMAKE_C_FLAGS_DEBUG
         "${CMAKE_C_FLAGS_DEBUG} ${CLANG_COMPILER_FLAGS_DEBUG}")
-    set(CMAKE_C_FLAGS_RELEASE 
+    set(CMAKE_C_FLAGS_RELEASE
         "${CMAKE_C_FLAGS_RELEASE} ${CLANG_COMPILER_FLAGS_RELEASE}")
     add_definitions("-std=gnu99")
 elseif ("${CMAKE_C_COMPILER_ID}" STREQUAL "GNU")
     message(STATUS "Setting gcc flags.")
-    set(CMAKE_C_FLAGS_DEBUG 
+    set(CMAKE_C_FLAGS_DEBUG
         "${CMAKE_C_FLAGS_DEBUG} ${GCC_COMPILER_FLAGS_DEBUG}")
-    set(CMAKE_C_FLAGS_RELEASE 
+    set(CMAKE_C_FLAGS_RELEASE
         "${CMAKE_C_FLAGS_RELEASE} ${GCC_COMPILER_FLAGS_RELEASE}")
     add_definitions("-std=gnu99")
 elseif ("${CMAKE_C_COMPILER_ID}" STREQUAL "MSVC")
     message(STATUS "Setting MSVC flags.")
-    set(CMAKE_C_FLAGS_DEBUG 
+    set(CMAKE_C_FLAGS_DEBUG
         "${CMAKE_C_FLAGS_DEBUG} ${MSVC_COMPILER_FLAGS_DEBUG}")
-    set(CMAKE_C_FLAGS_RELEASE 
+    set(CMAKE_C_FLAGS_RELEASE
         "${CMAKE_C_FLAGS_RELEASE} ${MSVC_COMPILER_FLAGS_RELEASE}")
 endif()
 
@@ -79,19 +79,19 @@ message(STATUS "Set release flags to ${CMAKE_C_FLAGS_RELEASE}")
 SET(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${PROJECT_SOURCE_DIR}/cmake-modules)
 
 #
-# Add external libs that are required for abstract_astar_search to build here as sub
+# Add external libs that are required for abstract_astar_search_c to build here as sub
 # directories such that we can build and link against them as static libraries
 #
 add_subdirectory(${PROJECT_SOURCE_DIR}/deps/bstring)
 
 #
-# Header files required by abstract_astar_search 
+# Header files required by abstract_astar_search_c
 #
 include_directories(${PROJECT_SOURCE_DIR}/include)
 include_directories(${PROJECT_SOURCE_DIR}/deps/bstring/include)
 
 #
-# Add the abstract_astar_search src and tests to the build
+# Add the abstract_astar_search_c src and tests to the build
 #
 add_subdirectory(src)
 add_subdirectory(test)
