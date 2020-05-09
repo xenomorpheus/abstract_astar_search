@@ -1,0 +1,148 @@
+# Modifications to this file can be verified with:
+# - yamllint dot-clang-format
+# - loading into https://zed0.co.uk/clang-format-configurator/
+#
+# Re-format a codebase with:
+# $ find . -name \*.h -o -name \*.hpp -o -name \*.c -o -name \*.cpp | xargs \
+#   clang-format -style=file -i
+#
+# Current version based on:
+# <https://releases.llvm.org/9.0.0/tools/clang/docs/ClangFormatStyleOptions.html>
+#
+# Latest options:
+# <https://clang.llvm.org/docs/ClangFormatStyleOptions.html>
+---
+Language: Cpp
+AccessModifierOffset: -4
+AlignAfterOpenBracket: Align
+AlignConsecutiveAssignments: true
+AlignConsecutiveDeclarations: true
+AlignConsecutiveMacros: false
+AlignEscapedNewlines: Left
+AlignOperands: true
+AlignTrailingComments: true
+AllowAllArgumentsOnNextLine: true
+AllowAllConstructorInitializersOnNextLine: false
+AllowAllParametersOfDeclarationOnNextLine: true
+AllowShortBlocksOnASingleLine: true  # Clang 10: Never|Empty|Always
+AllowShortCaseLabelsOnASingleLine: true
+AllowShortFunctionsOnASingleLine: Inline
+AllowShortIfStatementsOnASingleLine: true  # Clang 9: Never|WithoutElse|Always
+AllowShortLambdasOnASingleLine: All
+AllowShortLoopsOnASingleLine: true
+AlwaysBreakAfterReturnType: None
+AlwaysBreakBeforeMultilineStrings: false
+AlwaysBreakTemplateDeclarations: Yes
+BinPackArguments: false
+BinPackParameters: false
+BraceWrapping:  # Requires 'BreakBeforeBraces: Custom'
+    AfterCaseLabel: false
+    AfterClass: false
+    AfterControlStatement: false  # Clang 10: Never|Multiline|Always
+    AfterEnum: false
+    AfterFunction: true
+    AfterNamespace: false
+    AfterObjCDeclaration: false
+    AfterStruct: false
+    AfterUnion: false
+    AfterExternBlock: false
+    BeforeCatch: true
+    BeforeElse: true
+    IndentBraces: false
+    SplitEmptyFunction: true
+    SplitEmptyRecord: true
+    SplitEmptyNamespace: true
+BreakAfterJavaFieldAnnotations: false
+BreakBeforeBinaryOperators: NonAssignment
+BreakBeforeBraces: Custom
+BreakBeforeTernaryOperators: true
+BreakConstructorInitializers: AfterColon
+# BreakInheritanceList: ???  # Clang 9: BeforeColon|BeforeComma|AfterColon
+BreakStringLiterals: true
+ColumnLimit: 120
+CommentPragmas: ''
+CompactNamespaces: true
+ConstructorInitializerAllOnOneLineOrOnePerLine: true
+ConstructorInitializerIndentWidth: 4
+ContinuationIndentWidth: 4
+Cpp11BracedListStyle: true
+# DeriveLineEnding: false  # Clang 10
+DerivePointerAlignment: false
+DisableFormat: false
+FixNamespaceComments: true
+ForEachMacros: []
+IncludeBlocks: Regroup
+IncludeCategories:
+  - Regex: '\".*\"'
+    Priority: 1
+  - Regex: '<.*\.h+>'
+    Priority: 3
+  - Regex: '<.*>'
+    Priority: 2
+  - Regex: '.*'
+    Priority: 4
+IncludeIsMainRegex: '(_main|_test|_example|_util)?$'
+# IncludeIsMainSourceRegex: ''  # Clang 10
+IndentCaseLabels: false
+# IndentGotoLabels: true  # Clang 10
+IndentPPDirectives: None
+IndentWidth: 4
+IndentWrappedFunctionNames: false
+JavaImportGroups: []
+JavaScriptQuotes: Leave
+JavaScriptWrapImports: true
+KeepEmptyLinesAtTheStartOfBlocks: true
+MacroBlockBegin: ''
+MacroBlockEnd: ''
+MaxEmptyLinesToKeep: 2
+NamespaceIndentation: All
+NamespaceMacros: []
+ObjCBinPackProtocolList: Auto
+ObjCBlockIndentWidth: 4
+ObjCSpaceAfterProperty: false
+ObjCSpaceBeforeProtocolList: true
+# Add penalty values to formatting rules to dynamically trade-off between
+# alternative formats. clang-format builds a decision tree of alternative
+# formats and sums the penalties applied to each. The alternative with the
+# smallest penalty wins. Careful use of penalties can result in more readable
+# code via a context-sensitive application of the rules.
+# <https://github.com/git/git/commit/42efde4c299141ddf1ca5b63909b94ab3875aa14>
+PenaltyBreakAssignment: 1000
+PenaltyBreakBeforeFirstCallParameter: 2000000
+PenaltyBreakComment: 300
+PenaltyBreakFirstLessLess: 120
+PenaltyBreakString: 1000
+PenaltyBreakTemplateDeclaration: 0
+PenaltyExcessCharacter: 1000000
+PenaltyReturnTypeOnItsOwnLine: 60
+PointerAlignment: Middle
+RawStringFormats: []
+ReflowComments: true
+SortIncludes: true
+SortUsingDeclarations: true
+SpaceAfterCStyleCast: false
+SpaceAfterLogicalNot: false
+SpaceAfterTemplateKeyword: true
+SpaceBeforeAssignmentOperators: true
+SpaceBeforeCpp11BracedList: false
+SpaceBeforeCtorInitializerColon: true
+SpaceBeforeInheritanceColon: true
+SpaceBeforeParens: ControlStatements
+SpaceBeforeRangeBasedForLoopColon: true
+# SpaceBeforeSquareBrackets: false  # Clang 10
+# SpaceInEmptyBlock: false  # Clang 10
+SpaceInEmptyParentheses: false
+SpacesBeforeTrailingComments: 1
+SpacesInAngles: false
+SpacesInCStyleCastParentheses: false
+# SpacesInConditionalStatement: true  # Clang 10
+SpacesInContainerLiterals: true
+SpacesInParentheses: false
+SpacesInSquareBrackets: false
+Standard: Cpp11  # Clang 10: c++03|c++11|c++14|c++17|c++20|Latest|Auto
+StatementMacros: []
+TabWidth: 8
+TypenameMacros: []
+# UseCRLF: false  # Clang 10
+UseTab: Never
+...
