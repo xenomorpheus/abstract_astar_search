@@ -135,8 +135,8 @@ error:
  */
 int my_is_goal_state_function(ai_model_state *model_state) {
   my_model_state_data *data = (my_model_state_data *)(model_state->data);
-  return (abs(data->agent_x - data->goal_x) < 0.5f) &&
-         (abs(data->agent_y - data->goal_y) < 0.5f);
+  return (fabs(data->agent_x - data->goal_x) < 0.5f) &&
+         (fabs(data->agent_y - data->goal_y) < 0.5f);
 }
 
 /* This is an estimate of the remaining cost (distance) to the Goal Model State.
@@ -145,8 +145,8 @@ int my_is_goal_state_function(ai_model_state *model_state) {
  */
 float my_goal_est_cost_function(ai_model_state *model_state) {
   my_model_state_data *data = (my_model_state_data *)(model_state->data);
-  return sqrt(abs(data->agent_x - data->goal_x) +
-              abs(data->agent_y - data->goal_y));
+  return sqrt(fabs(data->agent_x - data->goal_x) +
+              fabs(data->agent_y - data->goal_y));
 }
 
 // Setup
@@ -205,9 +205,9 @@ char *test_ai_search_demo_straight(void) {
   mu_assert(path != NULL, "ai_search_demo_straight: path NOT NULL.");
   mu_assert(path->data != NULL, "ai_search_demo_straight: path data NOT NULL.");
   my_action_data *data = path->data;
-  mu_assert(abs(data->x_diff - 0.0f) < TOLLERANCE,
+  mu_assert(fabs(data->x_diff - 0.0f) < TOLLERANCE,
             "ai_search_demo_straight: action[0]x = 0.");
-  mu_assert(abs(data->y_diff - 1.0f) < TOLLERANCE,
+  mu_assert(fabs(data->y_diff - 1.0f) < TOLLERANCE,
             "ai_search_demo_straight: action[0]1 = 1.");
   my_action_data_free(path->data);
   // Action 1
@@ -216,9 +216,9 @@ char *test_ai_search_demo_straight(void) {
   mu_assert(path->data != NULL,
             "ai_search_demo_straight: action[1] data NOT NULL.");
   data = path->data;
-  mu_assert(abs(data->x_diff - 0.0f) < TOLLERANCE,
+  mu_assert(fabs(data->x_diff - 0.0f) < TOLLERANCE,
             "ai_search_demo_straight: action[1]x = 0.");
-  mu_assert(abs(data->y_diff - 1.0f) < TOLLERANCE,
+  mu_assert(fabs(data->y_diff - 1.0f) < TOLLERANCE,
             "ai_search_demo_straight: action[1]1 = 1.");
   my_action_data_free(path->data);
   // Action 2
