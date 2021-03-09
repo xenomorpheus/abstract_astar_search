@@ -1,6 +1,8 @@
 A* Search written in C.
 =============================
 
+  [![Build Status](https://travis-ci.org/xenomorpheus/abstract_astar_search_c.svg?branch=master)](https://travis-ci.org/xenomorpheus/abstract_astar_search_c)
+
 This A* Search is written in an abstract manner, that is independant of
 the implementation of the ModelState etc.
 
