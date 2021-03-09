@@ -10,10 +10,10 @@ To prove this A* Search is independant of implementation, two different
 implementations are provided:
 
 1) Graph A* Search:
-test//test_ai_search_demo_graph.c
+test/test_ai_search_demo_graph.c
 
 2) Grid A* Search:
-test//test_ai_search_demo_grid.c
+test/test_ai_search_demo_grid.c
 
 This is a CMake project with unit tests.
 
